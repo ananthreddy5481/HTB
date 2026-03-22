@@ -121,6 +121,11 @@ int main()
 
 execute them and we will get the root shell .
 
+executing ::
+
+<img width="574" height="396" alt="Screenshot 2026-03-22 at 17 29 39" src="https://github.com/user-attachments/assets/32bc7e3b-f734-45b9-a7f0-25e7d4d26d00" />
+
+
 <img width="1872" height="540" alt="image" src="https://github.com/user-attachments/assets/79da5be1-35a3-4228-be73-e03d27ba10b4" />
 
 ### Root flag -- 5518dfe6671cdcf29af8f4c82f847ca6
