@@ -167,3 +167,10 @@ user flag was in /home/sa_mark/user.txt
 user flag :: 9355c8d48e58802c3871420f8d4eb5dd
 
 
+**CVE 2025-60787**
+
+https://github.com/advisories/GHSA-j945-qm58-4gjx
+
+**CVE-2024-51482**
+
+https://github.com/ZoneMinder/zoneminder/security/advisories/GHSA-qm8h-3xvf-m7j3
