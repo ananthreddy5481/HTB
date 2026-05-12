@@ -77,5 +77,6 @@ the protocol used to find the machines in the local network just like DNS protoc
 
 used to  communicate with the directory sharing services like AD using the ports 389 and 636.
 
+```ldapsearch``` 
 
-
+command tool used to communicate with the AD just like 
