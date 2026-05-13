@@ -186,7 +186,7 @@ if __name__ == "__main__":
 
 <img width="1397" height="128" alt="Screenshot 2026-04-16 at 18 40 51" src="https://github.com/user-attachments/assets/90d416c8-c101-43eb-892d-6abe3d8be049" />
 
-### Remote Code Execution (RAC) ::
+### Remote Code Execution (RCE) ::
 
 <img width="1390" height="216" alt="Screenshot 2026-04-16 at 18 45 58" src="https://github.com/user-attachments/assets/fc1db5b6-07c7-4c39-aab1-6463617ad8dd" />
 
