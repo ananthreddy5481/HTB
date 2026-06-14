@@ -51,7 +51,7 @@ hashed Password : 0Nv32PTwgYjzg9/8j5TbmvPd3e7WhtWWyuPsyO76/Y+U193E
 
 key : armando
 
-Original Password : nvEfEK16^1aM4$e7AclUf8x$tRWxPWO1%lmz
+Original Password : <img width="685" height="644" alt="Screenshot 2026-06-13 at 22 41 24" src="https://github.com/user-attachments/assets/31457166-459d-4ca8-9337-307bf48d80c3" />
 ```
 
 from the line (LdapQuery.cs) :
@@ -77,6 +77,21 @@ the protocol used to find the machines in the local network just like DNS protoc
 
 used to  communicate with the directory sharing services like AD using the ports 389 and 636.
 
+```winRM``` -- Windows Remote Management -- operated on port 5985
+
+It is a Microsoft service that allows you to remotely execute commands and manage Windows machines over the network.
+
+<img width="1305" height="348" alt="Screenshot 2026-06-13 at 21 55 21" src="https://github.com/user-attachments/assets/0506229d-5816-472c-9c13-38b10464608c" />
+
+```ldap``` user does not have the authorization for the winRM shell .
+
 ```ldapsearch``` 
 
-command tool used to communicate with the AD just like 
+command tool used to communicate with the AD using LDAP .
+
+```
+ldapsearch -x -H ldap://support.htb \ -D "SUPPORT\\ldap" \ -w 'password' \ -b "DC=support,DC=htb" \ "(objectClass=user)" \
+sAMAccountName description
+```
+
+
