@@ -90,8 +90,26 @@ It is a Microsoft service that allows you to remotely execute commands and manag
 command tool used to communicate with the AD using LDAP .
 
 ```
-ldapsearch -x -H ldap://support.htb \ -D "SUPPORT\\ldap" \ -w 'password' \ -b "DC=support,DC=htb" \ "(objectClass=user)" \
-sAMAccountName description
+ldapsearch -x -H ldap://support.htb \ -D "SUPPORT\\ldap" \ -w 'password' \ -b "DC=support,DC=htb"  "(objectClass=user)" 
+```
+
+<img width="768" height="756" alt="Screenshot 2026-06-15 at 21 24 27" src="https://github.com/user-attachments/assets/f2fdff40-b18f-4e0a-ad65-0c9d8a6aeb36" />
+
+got another user ```support``` 
+
+```
+username - support
+password - Ironside47pleasure40Watchful
+```
+
+<img width="1328" height="581" alt="Screenshot 2026-06-15 at 21 33 56" src="https://github.com/user-attachments/assets/0dc3b64d-541c-4e67-9a2b-b02d55801659" />
+
+### User flag 
+
+**/Users/support/Desktop/user.txt**
+
+```
+79abbfac733382dc9bcceb543bffbed2
 ```
 
 
