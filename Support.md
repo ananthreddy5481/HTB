@@ -51,8 +51,9 @@ hashed Password : 0Nv32PTwgYjzg9/8j5TbmvPd3e7WhtWWyuPsyO76/Y+U193E
 
 key : armando
 
-Original Password : <img width="685" height="644" alt="Screenshot 2026-06-13 at 22 41 24" src="https://github.com/user-attachments/assets/31457166-459d-4ca8-9337-307bf48d80c3" />
+Original Password : 
 ```
+<img width="685" height="644" alt="Screenshot 2026-06-13 at 22 41 24" src="https://github.com/user-attachments/assets/31457166-459d-4ca8-9337-307bf48d80c3" />
 
 from the line (LdapQuery.cs) :
 ```
