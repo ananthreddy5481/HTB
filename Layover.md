@@ -52,5 +52,43 @@ after connecting to the wifi provided we can access ```http://portal.internation
 
 ```
 
+iwconfig        # mode = managed should be changed to monitor (monitor helps us to capture requests to server from other users also in a                             small range).
+
+sudo ip link set wlan3 down
+sudo iw dev wlan3 set type monitor
+sudo ip link set wlan3 up
+
+start tcpdump to capture the traffic(http as the website is hosted in the http(unencrypted) so we will get the creds if anyone in the same network enters).
+
+sudo tcpdump -i wlan3 -w http.pcap 'tcp port 80'
+
+inspecting the capture.pcap file will reveal the creds.
+
+```
+
+**Creds :**
+```
+username : jenny
+password : Fl1ghtDeck2026!
+```
+
+endpoint **```portal.international.htb/admin```** gives a craft cms portal which can be logged in with those creds.
+
+## Craft cms v 5.9.8
+
+Craft CMS is a tool used to build and manage custom websites.(similar to Wordpress but more advanced)(core work is same)
+
+## CVE-2026-44011
+
+The /admin/actions/element-search/search endpoint takes the user-supplied condition parameter and passes it directly to Yii2's object
+creation function (createCondition()) without sanitizing it first.
+
+yii2 can create objects that can directly be configured to execute the shell commands.
+
+
+https://github.com/khush-613/CVE-2026-44011-poc/tree/main
+
+
+gives reverse shell. gives **```www-data```**.
 
 
