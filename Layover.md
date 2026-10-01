@@ -46,4 +46,11 @@ this explains that there is another gateway that routing traffic.
 
 the ssh traffic from my Mac to layover.htb is also not reaching the rdp machine which strongly suggests that there is another machine.
 
-after connecting to the wifi provided by the
+after connecting to the wifi provided we can access ```http://portal.international.htb/```.
+
+**Capturing the http request on the local network for capturing the creds that others use to login.**
+
+```
+
+
+
