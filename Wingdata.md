@@ -258,6 +258,7 @@ with tarfile.open(backup_path, "r") as tar:
 
 using the exploit of cve 2025-4138 we create an exploit script.
 
+<img width="916" height="317" alt="Screenshot 2026-10-11 at 14 12 58" src="https://github.com/user-attachments/assets/d19a6113-6fdc-45de-8e91-6b71bbe0097e" />
 
 
 generated a public and private key so that we can plant this key in the .ssh/authorized_keys which will help us to get the root access.
