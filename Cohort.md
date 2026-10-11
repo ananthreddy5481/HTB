@@ -77,7 +77,7 @@ Reachable. HTTP 200 (text/html)
 
 through this we can confirm that it is vulnerble to SSRF.
 
-``` /status``` endpoint was there but the server rejected our request.
+``` /status``` endpoint was there.
 
 ```
 request - https://127.1/status
