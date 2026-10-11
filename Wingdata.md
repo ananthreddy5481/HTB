@@ -18,7 +18,7 @@ redirecting from wingdata.htb to the ftp.windata.htb. so DNS map the following a
 <img width="1470" height="956" alt="Screenshot 2026-04-16 at 11 31 58" src="https://github.com/user-attachments/assets/7d37d1dd-4f9a-4de5-a9cf-bb0973e51617" />
 
 
-## cve 2025-47182
+## cve 2025-47812
 
 the WingFTP server users lua script for the login page and it handles the username field unsafely. it allows the nullbyte charecters and newline charecters which will help us to write our own script after the username.
 
