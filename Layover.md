@@ -1,5 +1,13 @@
 # Layover
 
+```
+Nmap scan report for layover.htb (10.129.59.100)
+
+PORT     STATE SERVICE
+22/tcp   open  ssh
+3389/tcp open  ms-wbt-server
+
+```
 
 
 ## Port 3389
