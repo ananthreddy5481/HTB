@@ -137,7 +137,7 @@ php /tmp/decrypt2.php
 **SSH credentials ::**
 ```
 Username :: aporter
-Password :: "SkypOrt_Relay!26"
+Password :: "Skyp0rt_Relay!26"
 ```
 ## User flag ::
 ```
