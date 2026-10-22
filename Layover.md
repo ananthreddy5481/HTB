@@ -139,10 +139,46 @@ php /tmp/decrypt2.php
 Username :: aporter
 Password :: "Skyp0rt_Relay!26"
 ```
+
+target ip in the local network ::
+```
+ip : 10.13.37.10
+```
+
 ## User flag ::
 ```
 213b869b0920cc8e70e0f2b9ce83adf7
 ```
+
+## CUPS(local printing service running on 631)
+
+<img width="1470" height="280" alt="Screenshot 2026-10-22 at 18 44 36" src="https://github.com/user-attachments/assets/4671a3b7-68a5-442a-b05a-8ce8ea73da98" />
+
+
+
+**```CUPS```** - Common Unix Printing System - a printing service that helps to manage printers or network of printers using print jobs and filters.
+
+**```cupsd```**-  deamon to operate the CUPS operations.
+
+a print job is one printing task submitted to the printing service.it is handled by the schedulers that queue the jobs.
+
+### CVE-2026-34990 - CUPS Local Privilege escalation
+
+https://github.com/predyy/CVE-2026-34990/tree/main
+
+attacker creates a fake printer in his local machine and he sends request(job) to that printer. and it replies with the Authentication token which is reusable.
+
+this token is recorded by the attacker server and it is used to send the request to write system files.
+
+in general the cups is not allowed to access system files but here using authentication token attacker can write to system files with root level access.
+
+writing into /etc/sudoers to make aporter user sudo::all
+
+## Root Flag
+```
+f19c9c783620ff04a6d79285ec7c9a42
+```
+
 
 
 
